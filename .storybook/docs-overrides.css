@@ -1,0 +1,50 @@
+/*
+ * Storybook Docs 페이지 전역 레이아웃 조정.
+ * Checkbox뿐 아니라 앞으로 만들 Radio/Button/Select 등 모든 컴포넌트 문서에
+ * 동일하게 적용됩니다(컴포넌트별 CSS가 아니라 여기 한 곳에서 관리).
+ */
+
+/* Preview(Canvas) 박스 — 기본은 내용에 딱 맞게 줄어들어서 shadcn 데모 박스보다
+ * 여백이 부족해 보임. 살짝 더 여유 있게. */
+.docs-story {
+  min-height: 200px;
+}
+
+/* 실제로 테두리/모서리가 그려지는 건 .docs-story가 아니라 그 부모인
+ * .sbdocs-preview (border + overflow:hidden을 가진 요소)여서, radius는
+ * 여기에 줘야 눈에 보입니다. Storybook 자체 CSS-in-JS가 나중에 로드돼서
+ * 기본값(4px)이 이기므로 !important로 확정. */
+.sbdocs-preview {
+  border-radius: 20px !important;
+}
+
+/* 문서 본문(article) 가로 폭 — 기본 1000px는 한 줄이 너무 길어서 shadcn 문서의
+ * 읽기 편한 폭에 맞춰 좁힘. Storybook 자체 CSS-in-JS가 더 늦게 로드돼서 이기므로
+ * !important로 확정. */
+.sbdocs-content {
+  max-width: 760px !important;
+}
+
+/* Props 표(Controls 블록의 <table>)가 부모(760px)보다 넓게(약 847px) 튀어나가는 문제 —
+ * 실측 원인은 "radius.0 / radius.2 / radius.4 / radius.all" 같은 <code> 텍스트가
+ * white-space:nowrap이라 한 줄짜리 최소 너비를 강제하는 것. table-layout:fixed는
+ * "Default" 컬럼(대부분 "-")이 거의 0px로 짜부라지는 부작용이 있어서 대신 code 요소만
+ * 줄바꿈을 허용해 auto 레이아웃 그대로 폭을 맞춤. 원래 표 자체엔 테두리가 없어서
+ * 위 Preview/Usage 박스들과 통일감 있게 테두리+radius를 새로 추가. */
+.docblock-argstable {
+  width: 100% !important;
+  max-width: 100% !important;
+  border: 1px solid rgba(38, 74, 115, 0.15) !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+.docblock-argstable code {
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+}
+
+/* Usage 섹션의 코드 블록 — 위 Preview 박스들과 같은 모서리 반지름으로 통일. */
+.docblock-source {
+  border-radius: 20px !important;
+}

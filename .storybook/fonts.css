@@ -1,0 +1,16 @@
+/*
+ * Next 앱은 layout.tsx의 next/font/local이 --font-pretendard 변수를 주입하지만,
+ * Storybook(@storybook/nextjs-vite)은 실제 번들러가 Vite라 next/font 컴파일타임
+ * 트랜스폼이 적용되지 않아 이 변수가 정의되지 않는다 — globals.css의
+ * --font-sans: var(--font-pretendard), ... 가 항상 fallback으로 떨어지는 원인.
+ *
+ * pretendard 패키지가 함께 배포하는 프레임워크 독립적인 @font-face(동일 woff2,
+ * 동일 font-weight: 45 920 variable range)를 그대로 로드해 --font-pretendard만
+ * 채워주면, globals.css의 --font-sans 체인을 그대로 재사용해 Next 앱과 동일한
+ * 폰트/메트릭을 재현할 수 있다. 실제 @font-face 로드는 preview.tsx에서
+ * "pretendard/dist/web/variable/pretendardvariable.css"를 JS import하고,
+ * 이 파일은 --font-pretendard 변수 매핑만 담당한다.
+ */
+:root {
+  --font-pretendard: "Pretendard Variable";
+}

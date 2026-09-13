@@ -1,0 +1,114 @@
+/*
+ * Storybook 커스텀 문서 페이지 공용 스타일.
+ * 예전엔 design-system/tokens.css(--ds-* 변수, 레거시 Ds* 컴포넌트 전용)를
+ * 참조했으나, 지금은 bds-tokens.css(현재 shadcn 기반 컴포넌트가 실제로
+ * 쓰는 Semantic 토큰)를 직접 참조하도록 재배선했다. Spacing/Radius/
+ * Border-width처럼 bds-tokens.css에 CSS 변수로 노출돼 있지 않은 Foundation
+ * 값은(다른 컴포넌트들이 그러듯) 리터럴 px로 둔다.
+ */
+
+.docTitle {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 8px;
+  color: var(--content-primary);
+}
+
+.docDescription {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--content-secondary);
+  margin: 0 0 40px;
+  max-width: 720px;
+}
+
+.docSection {
+  margin: 48px 0;
+}
+
+.docSectionTitle {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.4;
+  margin: 0 0 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border-default);
+  color: var(--content-primary);
+}
+
+.docSubsectionTitle {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 24px 0 8px;
+  color: var(--content-primary);
+}
+
+.docSectionDescription {
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--content-secondary);
+  margin: 0 0 16px;
+}
+
+.docBadgeRow {
+  display: flex;
+  gap: 8px;
+  margin: 0 0 16px;
+}
+
+.docBadge {
+  display: inline-flex;
+  align-items: center;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background-color: var(--surface-subtle);
+  color: var(--content-secondary);
+}
+
+/* Preview 박스 — shadcn 데모 박스처럼 테두리+라운드+넉넉한 padding, 중앙 정렬 */
+.docPreview {
+  display: flex;
+  min-height: 120px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border-default);
+  border-radius: 8px;
+  padding: 24px;
+  background-color: var(--surface-default);
+}
+
+.docExtSection {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 2px dashed var(--border-default);
+}
+
+.docExtLabel {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--content-secondary);
+  margin: 0 0 16px;
+}
+
+/* States/Sizes/Radius처럼 Variant를 나란히 비교하는 Story 공용 그리드. */
+.variantGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.variantGridItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.variantGridLabel {
+  font-size: 12px;
+  color: var(--content-secondary);
+}

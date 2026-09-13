@@ -1,0 +1,60 @@
+/**
+ * BDS Semantic Color Tokens — mirrors docs/design.md "Semantic > Color".
+ * This worktree (experiment/design-tokens-shadcn-base) tests skinning
+ * freshly-installed shadcn components using design.md alone, with no
+ * Component MD (button.md / checkbox.md / radio.md) involved.
+ */
+
+:root {
+  /* Surface */
+  --surface-canvas: #ffffff;
+  --surface-default: #ffffff;
+  --surface-subtle: #f5f5f8;
+  --surface-elevated: #ffffff;
+  --surface-inverse: #000000;
+  --surface-disabled: #f5f5f8;
+
+  /* Content */
+  --content-primary: #1a1b23;
+  --content-secondary: #5e5e67;
+  --content-placeholder: #767680;
+  --content-disabled: #c7c5d0;
+  --content-inverse: #ffffff;
+  --content-brand: #6932eb;
+  --content-error: #e22732;
+
+  /* Border */
+  --border-subtle: #e9e8ee;
+  --border-default: #abaab4;
+  --border-disabled: #c7c5d0;
+  --border-focus: #5e5e67;
+  --border-error: #e22732;
+
+  /* Interactive */
+  --interactive-primary-default: #6932eb;
+  --interactive-primary-hover: #5631c2;
+  --interactive-primary-pressed: #41199f;
+  --interactive-secondary-default: #5e5e67;
+  --interactive-secondary-hover: #46464f;
+  --interactive-secondary-pressed: #2f3038;
+  --interactive-danger-default: #e22732;
+  --interactive-danger-hover: #c91a25;
+  --interactive-danger-pressed: #b31220;
+  --interactive-danger-subtle: #ffeaec;
+  --interactive-danger-subtle-hover: #fdd4d6;
+
+  /* Status */
+  --status-success: #48bb78;
+  --status-error: #e22732;
+
+  /* Radius — control-radius = radius.4 (BDS 기본값, Button POC에서 확정) */
+  --control-radius: 4px;
+  --button-radius: var(--control-radius);
+  --input-radius: var(--control-radius);
+
+  /* Shadow — Foundation shadow.100/200/300 (design.md 참고), Tailwind v4 기본
+     shadow-sm/md/lg 값을 그대로 승격한 것 (별도 BDS 고유 값 아님) */
+  --shadow-100: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-200: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-300: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
